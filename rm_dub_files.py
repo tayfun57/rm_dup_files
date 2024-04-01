@@ -51,14 +51,14 @@ for ordner in ordner_liste:
             dateipfad = os.path.join(ordner_pfad, datei)
             hashwert = hash_datei(dateipfad)
             # Überprüfe, ob der Hash bereits gefunden wurde
-            if hashwert in gefunden_hashes:
+            if hashwert in gefundene_hashes:
                 if hashwert in duplikate:
                     duplikate[hashwert].append(dateipfad)
                 else:
                     duplikate[hashwert] = [dateipfad]
             else:
                 kopiere_datei(dateipfad, neuer_ordner)
-                gefunden_hashes.add(hashwert)
+                gefundene_hashes.add(hashwert)
 
 # Ausgabe der Duplikate in der Kommandozeile
 if duplikate:
